@@ -1,0 +1,33 @@
+
+body{
+    background: hsl(222, 47%, 11%);
+    color: white;
+}
+
+.total-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "lef righ";
+    min-height: 100vh;
+}
+.form-part{
+    grid-area: lef;
+    padding: 2rem 2rem;
+    overflow-y: auto;
+    max-width: 900px;
+}
+.rightside {
+    grid-area: righ;
+    background: url(https://picsum.photos/200);
+    background-position: center;
+    margin-left:-1.5em;
+}
+a {
+    color: hsl(0, 85%, 65%);
+    text-decoration: none;
+}
+
+a:hover {
+    color: hsl(0, 100%, 50%);
+    text-decoration: underline;
+}

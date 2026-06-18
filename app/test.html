@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="col-12">
+    <label class="form-label">Skills Being Learned</label>
+    <input type="text" id="skillsInput" class="form-control"
+           placeholder="Type a skill and press Enter">
+    <div id="skillsTags" class="mt-2"></div>
+</div>
+
+<script>
+const input = document.getElementById("skillsInput");
+const tagsDiv = document.getElementById("skillsTags");
+let skills = [];
+
+input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+
+        const value = input.value.trim();
+
+        if (value !== "") {
+            skills.push(value);
+            input.value = "";
+            renderTags();
+        }
+    }
+});
+
+function renderTags() {
+    tagsDiv.innerHTML = "";
+
+    skills.forEach((skill, index) => {
+        const tag = document.createElement("span");
+
+        tag.className = "badge bg-primary me-2";
+        tag.innerHTML = `
+            ${skill}
+            <span style="cursor:pointer;margin-left:5px;">×</span>
+        `;
+
+        tag.querySelector("span").onclick = function() {
+            skills.splice(index, 1);
+            renderTags();
+        };
+
+        tagsDiv.appendChild(tag);
+    });
+}
+</script>
+</body>
+</html>

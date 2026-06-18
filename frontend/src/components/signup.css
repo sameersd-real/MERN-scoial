@@ -1,0 +1,41 @@
+
+body{
+    background: hsl(222, 47%, 11%);
+    color: white;
+    margin: 0;
+}
+
+.total-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "lef righ";
+    min-height: 100vh;
+    background: hsl(222, 47%, 11%);
+    color: white;
+}
+.form-part{
+    grid-area: lef;
+    padding: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+    max-width: 900px;
+}
+.rightside {
+    grid-area: righ;
+    background: url(https://picsum.photos/800/1200);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+a {
+    color: hsl(0, 85%, 65%);
+    text-decoration: none;
+}
+
+a:hover {
+    color: hsl(0, 100%, 50%);
+    text-decoration: underline;
+}
+
+

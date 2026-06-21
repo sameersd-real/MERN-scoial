@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     regdNo: "",
     password: "",
@@ -15,22 +16,25 @@ export default function Login() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const response = await fetch("http://localhost:5000/login",
+      { method:"POST",headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        regdNo: loginData.regdNo,
+        password: loginData.password,
+      }),
+    }
+    )
+    const data = await response.json();
 
-    console.log(loginData);
-    console.log(JSON.stringify(loginData, null, 2));
-
-    // Future backend call
-    /*
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
-    });
-    */
+    if (response.ok) {
+      alert("Login successful");
+        navigate("/profile");
+      console.log(data.user);
+    } else {
+      alert(data.message);
+    }
   };
 
   return (

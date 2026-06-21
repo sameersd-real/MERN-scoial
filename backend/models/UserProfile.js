@@ -19,6 +19,10 @@ const UserProfileSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    password:{
+        type: String,
+        required:true
+    },
     bio: {
         type: String,
         default: ''
@@ -35,15 +39,15 @@ const UserProfileSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
-    interestsAndGoals: {
-        type: String,
+    interests: {
+        type: [String],
         default: ''
     },    
     careerGoals: {
         type: [String],
         default: []
     },    
-    skillsBeingLearned: {
+    skills: {
         type: [String],
         default: []
     },
@@ -55,9 +59,9 @@ const UserProfileSchema = new mongoose.Schema({
         type: [String],
         default: []
     },    
-    longTermGoals: {
-        type: [String],
-        default: []
+    longTermGoal: {
+        type: String,
+        default: ""
     },    
     createdAt: {
         type: Date,
@@ -67,6 +71,6 @@ const UserProfileSchema = new mongoose.Schema({
         type: String,
         default: 'https://picsum.photos/200'
     }
-});
+},{timestamps:true});
 
 module.exports = mongoose.model('UserProfile', UserProfileSchema);

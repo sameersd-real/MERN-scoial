@@ -88,7 +88,7 @@ export default function Signup() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
@@ -107,8 +107,26 @@ export default function Signup() {
         : null,
     };
 
-    console.log(data);
-    console.log(JSON.stringify(data, null, 2));
+    try {
+    const response = await fetch("http://localhost:5000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    console.log(result);
+    if (response.ok) {
+      alert("Profile saved successfully");
+    }
+    } catch (error) {
+      console.error(error);
+    }
+    // console.log(data);
+    // console.log(JSON.stringify(data, null, 2));
   };
 
   return (

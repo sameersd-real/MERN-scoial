@@ -20,17 +20,14 @@ export default function Login() {
     e.preventDefault();
     const response = await fetch("http://localhost:5000/login",
       { method:"POST",headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({
-        regdNo: loginData.regdNo,
-        password: loginData.password,
-      }),
+      body: JSON.stringify(loginData),
     }
     )
     const data = await response.json();
 
     if (response.ok) {
-      alert("Login successful");
-        navigate("/profile");
+      localStorage.setItem("user", JSON.stringify(data.user));
+      navigate("/profile");
       console.log(data.user);
     } else {
       alert(data.message);

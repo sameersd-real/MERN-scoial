@@ -1,0 +1,7 @@
+body{
+    background: hsl(222, 47%, 11%) !important;
+    color: white;
+}
+.bg-dark{
+    background: hsl(222, 47%, 11%) !important;
+}

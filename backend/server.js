@@ -65,14 +65,11 @@ app.post("/login", async (req, res) => {
       });
     }
 
+    const userData = user.toObject();
+    delete userData.password;
     res.status(200).json({
       message: "Login successful",
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        username: user.username,
-      },
+      user: userData,
     });
   } catch (error) {
     res.status(500).json({

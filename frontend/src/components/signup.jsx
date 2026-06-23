@@ -316,7 +316,7 @@ export default function Signup() {
               className="form-control"
               name="profilePhoto"
               accept="image/*"
-              onChange={handleChange}
+              onChange={handleChange} //check this out
             />
           </div>
 

@@ -12,7 +12,8 @@ const UserProfileSchema = new mongoose.Schema({
     },
     regdNo:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     username: {
         type: String,

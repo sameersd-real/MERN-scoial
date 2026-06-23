@@ -12,7 +12,7 @@ export default function NotFound() {
           </h3>
 
           <p className="card-text text-muted mb-4">
-            The page you are looking for does not exist yet.
+            Congratulations. You found nothing.
           </p>
 
           <Link to="/home" className="btn btn-primary">

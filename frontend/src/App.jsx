@@ -5,7 +5,7 @@ import Signup from "./components/signup";
 import Profile from "./components/Profile"
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
-
+import Hero from "./components/Hero";
 function App() {
   return (
     
@@ -15,8 +15,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/home" element={<Home />}/>
-
-
+        <Route path="/hero" element={<Hero />}/>  {/* this will be the default path="/" later */}
         
         {/* Default route */}
         <Route path="/" element={<Login />} /> 

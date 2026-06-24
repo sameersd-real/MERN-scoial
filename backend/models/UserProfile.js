@@ -8,17 +8,20 @@ const UserProfileSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        required: true
+        required: true,
+        match:[/^[a-zA-Z]+\.\d{2}[a-zA-Z]{3}\d{4}@vitapstudent\.ac\.in$/,"Invalid Email"]
     },
     regdNo:{
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        match:[/^\d{2}[a-zA-Z]{3}\d{4}$/,"Invalid Registration number"]
     },
     username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        match:[/^[a-zA-Z0-9_]+$/,"Invalid Username"]
     },
     password:{
         type: String,

@@ -68,6 +68,34 @@ export default function Profile() {
               <strong>Year:</strong>
               <p className="mb-0">{formData.year}</p>
             </div>
+              
+            <div className="mb-3">
+              <strong>skills:</strong>
+              <ul>
+                {formData.skills?.map((skills) => (
+                  <li key={skills}>{skills}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="mb-3">
+              <strong>Interests:</strong>
+              <ul>
+                {formData.interests?.map((interest) => (
+                  <li key={interest}>{interest}</li>
+                ))}
+              </ul>
+            </div>
+              
+            <div className="mb-3">
+              <strong>career Goals:</strong>
+              <ul>
+                {formData.careerGoals?.map((careerGoals) => (
+                  <li key={careerGoals}>{careerGoals}</li>
+                ))}
+              </ul>
+            </div>
+              
+
           </div>
         </div>
       </div>

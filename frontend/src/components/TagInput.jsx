@@ -1,83 +1,58 @@
 import { useState } from "react";
+import './signup.css'
 
-export default function Signup() {
-  const [formData, setFormData] = useState({
-    name: "",
-    regdNo: "",
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    bio: "",
-    college: "",
-    branch: "",
-    year: "",
-    longTermGoal: "",
-    profilePhoto: null,
+export default function TagInput({ label, placeholder, items, setItems }) {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
 
-    interests: [],
-    careerGoals: [],
-    skills: [],
-    currentGoals: [],
-  });
+      const value = e.target.value.trim();
 
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: files ? files[0] : value,
-    }));
-  };
-
-  const updateTags = (field, values) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: values,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
+      if (value && !items.includes(value)) {
+        setItems([...items, value]);
+        e.target.value = "";
+      }
     }
+  };
 
-    console.log(formData);
+  const removeTag = (index) => {
+    setItems(items.filter((_, i) => i !== index));
   };
 
   return (
-    <div className="total-container">
-      <div className="form-part">
-        <h1>Signup</h1>
+    <div className="col-12">
+      <label className="form-label">{label}</label>
 
-        <form className="row g-3" onSubmit={handleSubmit}>
-          <BasicInfo
-            formData={formData}
-            handleChange={handleChange}
-          />
+      <input
+        type="text"
+        className="form-control"
+        placeholder={placeholder}
+        onKeyDown={handleKeyDown}
+      />
 
-          <AcademicInfo
-            formData={formData}
-            handleChange={handleChange}
-          />
-
-          <GoalsSection
-            formData={formData}
-            updateTags={updateTags}
-            handleChange={handleChange}
-          />
-
-          <ProfilePhoto handleChange={handleChange} />
-
-          <div className="col-12">
-            <button className="btn btn-primary">
-              Sign Up
+      <div className="mt-2">
+        {items.map((item, index) => (
+          <span
+            key={index}
+            className="badge bg-primary me-2 mb-2"
+            style={{ fontSize: "14px" }}
+          >
+            {item}
+            <button
+              type="button"
+              style={{
+                border: "none",
+                background: "transparent",
+                color: "white",
+                cursor: "pointer",
+              }}
+              onClick={() => removeTag(index)}
+            >
+              {" "}
+              ×
             </button>
-          </div>
-        </form>
+          </span>
+        ))}
       </div>
     </div>
   );

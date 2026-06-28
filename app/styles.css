@@ -2,6 +2,7 @@
 body{
     background: hsl(222, 47%, 11%);
     color: white;
+    padding: 25px;
 }
 
 .total-container{

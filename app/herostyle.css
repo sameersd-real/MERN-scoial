@@ -6,66 +6,56 @@
     padding:0;
     box-sizing:border-box;
 }
-
 html{
     scroll-behavior:smooth;
 }
-
 body{
     font-family:'Inter',sans-serif;
-    background:#0f172a;
+    background:hsl(222, 47%, 11%);
     color:#fff;
     line-height:1.6;
 }
-
 img{
     max-width:100%;
     display:block;
 }
-
 a{
     text-decoration:none;
     color:inherit;
 }
-
 ul{
     list-style:none;
 }
 
 /* ==========================COMMON========================== */
-
 .container{
     width:90%;
     max-width:1300px;
     margin:auto;
 }
-
 section{
     padding:100px 0;
 }
-
 h1,h2,h3,h4{
     font-weight:700;
 }
-
 p{
     color:#c9d1d9;
 }
-
 .btn{
     display:inline-block;
     padding:16px 34px;
     border-radius:14px;
-    background:#ff6b81;
+    background:hsl(222, 47%, 70%);
+    background:hsl(142, 70%, 49%);
     color:#fff;
     font-weight:600;
     transition:.3s;
 }
-
 .btn:hover{
-    background:#ff4f6d;
+    background:hsl(222, 47%, 50%);
+    background:hsl(14, 50%, 50%);
 }
-
 .secondary{
     background:transparent;
     border:2px solid #fff;
@@ -75,6 +65,7 @@ p{
     background:#fff;
     color:#111;
 }
+
 
 /* ==========================NAVBAR========================== */
 
@@ -146,7 +137,7 @@ nav a:hover{
     height:420px;
     margin-top:70px;
     border-radius:20px;
-    background:linear-gradient(135deg,#ff7f9d,#ffb2c2);
+    background:linear-gradient(135deg,#ff7f7f,#b2d2ff);
 }
 
 /* ==========================HOW IT WORKS========================== */
@@ -177,7 +168,7 @@ nav a:hover{
 .card .image{
     height:260px;
     border-radius:16px;
-    background:#2a3d63;
+    background:hsl(222, 47%, 28%);
     margin-bottom:25px;
 }
 
